@@ -34,7 +34,7 @@ const SITE_CONFIG = {
    * Connects the on-site application form directly to your Google Sheet!
    * Every on-site submission will automatically write a new row to your sheet in real-time.
    */
-  googleSheetWebhookUrl: "",
+  googleSheetWebhookUrl: "https://script.google.com/macros/s/AKfycbzlYiJdgIrkyy3-F_8tvrPXtOnFKETdInYd2j1Ixjhtfyr7PKpxMa2V5UZ0FNyRuT9W/exec",
 
   /**
    * Google Form URLs for Each Service
