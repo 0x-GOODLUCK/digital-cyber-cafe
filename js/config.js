@@ -35,14 +35,14 @@ const SITE_CONFIG = {
    * Example: "https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform"
    */
   googleFormUrls: {
-    onlineFormFilling: "",           // Replace with Google Form URL for Online Form Filling
-    governmentJobApplications: "",   // Replace with Google Form URL for Government Job Applications
-    printingPhotocopy: "",           // Replace with Google Form URL for Printing & Photocopy
-    panCardServices: "",             // Replace with Google Form URL for PAN Card Services
-    resumeMaking: "",                // Replace with Google Form URL for Resume Making
-    ticketBooking: "",               // Replace with Google Form URL for Ticket Booking
-    passportPhotos: "",              // Replace with Google Form URL for Passport Size Photos
-    otherDigitalServices: ""         // Replace with Google Form URL for Other Digital Services
+    onlineFormFilling: "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform",
+    governmentJobApplications: "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform",
+    printingPhotocopy: "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform",
+    panCardServices: "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform",
+    resumeMaking: "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform",
+    ticketBooking: "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform",
+    passportPhotos: "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform",
+    otherDigitalServices: "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform"
   },
 
   /**
