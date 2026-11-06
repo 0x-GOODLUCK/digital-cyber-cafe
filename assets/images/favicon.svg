@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Monitor Base & Stand -->
+  <path d="M26 54h12v-6H26v6z" fill="#3478D4"/>
+  <rect x="16" y="54" width="32" height="4" rx="2" fill="#173B67"/>
+  
+  <!-- Monitor Outer Body -->
+  <rect x="4" y="6" width="56" height="42" rx="7" fill="#173B67"/>
+  <!-- Screen Inner Display -->
+  <rect x="7" y="9" width="50" height="36" rx="5" fill="#F5F8FC"/>
+  
+  <!-- Digital Document Graphic inside Screen -->
+  <g transform="translate(18, 13)">
+    <!-- Document Base with folded corner -->
+    <path d="M2 2h16l8 8v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#3478D4"/>
+    <!-- Folded corner tab -->
+    <path d="M18 2v8h8" fill="#60A5FA"/>
+    <!-- Digital data lines -->
+    <line x1="5" y1="9" x2="14" y2="9" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    <line x1="5" y1="14" x2="21" y2="14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    <line x1="5" y1="19" x2="17" y2="19" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    <!-- Digital spark / connectivity dot -->
+    <circle cx="21" cy="21" r="2.2" fill="#38BDF8"/>
+  </g>
+  
+  <!-- Status LED -->
+  <circle cx="32" cy="46" r="1.5" fill="#38BDF8"/>
+</svg>
