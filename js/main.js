@@ -305,8 +305,22 @@ document.addEventListener('DOMContentLoaded', () => {
         status: "Received"
       };
 
-      // Save application
+      // Save application locally
       saveApplication(newApp);
+
+      // Send directly to Google Sheet in the background (Solution 2)
+      if (config.googleSheetWebhookUrl && /^https?:\/\//i.test(config.googleSheetWebhookUrl)) {
+        try {
+          fetch(config.googleSheetWebhookUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newApp)
+          });
+        } catch (err) {
+          console.warn('Google Sheet background sync notice:', err);
+        }
+      }
 
       // Render Confirmation Receipt Slip
       showApplicationReceipt(newApp);

@@ -30,6 +30,13 @@ const SITE_CONFIG = {
   },
 
   /**
+   * Google Sheet Webhook URL (Solution 2)
+   * Connects the on-site application form directly to your Google Sheet!
+   * Every on-site submission will automatically write a new row to your sheet in real-time.
+   */
+  googleSheetWebhookUrl: "",
+
+  /**
    * Google Form URLs for Each Service
    * Replace the empty string "" with your actual Google Form URL when ready.
    * Example: "https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform"
