@@ -82,16 +82,21 @@ document.addEventListener('DOMContentLoaded', () => {
       card.setAttribute('data-service-id', service.id);
 
       card.innerHTML = `
-        <div class="service-icon-wrap" aria-hidden="true">
-          ${getIcon(service.icon)}
+        <div class="service-image-wrap">
+          <img src="${service.image}" alt="${service.title}" class="service-card-img" loading="lazy">
+          <div class="service-icon-badge" aria-hidden="true">
+            ${getIcon(service.icon)}
+          </div>
         </div>
-        <h3 class="service-title">${service.title}</h3>
-        <p class="service-desc">${service.shortDesc}</p>
-        <div class="service-action">
-          <button type="button" class="btn btn-apply" data-service-id="${service.id}" aria-label="Apply now for ${service.title}">
-            <span>Apply Now</span>
-            ${getIcon('arrow-right')}
-          </button>
+        <div class="service-card-body">
+          <h3 class="service-title">${service.title}</h3>
+          <p class="service-desc">${service.shortDesc}</p>
+          <div class="service-action">
+            <button type="button" class="btn btn-apply" data-service-id="${service.id}" aria-label="Apply now for ${service.title}">
+              <span>Apply Now</span>
+              ${getIcon('arrow-right')}
+            </button>
+          </div>
         </div>
       `;
 

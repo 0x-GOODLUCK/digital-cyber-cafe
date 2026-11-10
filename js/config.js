@@ -65,6 +65,7 @@ const SITE_CONFIG = {
       shortDesc: "Accurate online submission for admission forms, university portals, certificates, and citizen welfare schemes.",
       detailedDesc: "Professional assistance with all types of digital application forms, university registrations, scholarship submissions, and government portal registrations with zero errors.",
       icon: "file-text",
+      image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
       price: null // Future price placeholder (e.g. "Starting from ₹50")
     },
     {
@@ -74,6 +75,7 @@ const SITE_CONFIG = {
       shortDesc: "Complete application submission for SSC, UPSC, Banking, Railway, Defence, State exams, and admit cards.",
       detailedDesc: "End-to-end guidance for government recruitment forms, mandatory document resizing, photo/signature formatting, and timely admit card downloads.",
       icon: "briefcase",
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
       price: null
     },
     {
@@ -83,6 +85,7 @@ const SITE_CONFIG = {
       shortDesc: "Crisp black & white and vibrant colour printing, high-speed document photocopying, scanning, and spiral binding.",
       detailedDesc: "High-resolution prints for study materials, official documents, project reports, and legal papers with fast turnaround.",
       icon: "printer",
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
       price: null
     },
     {
@@ -92,6 +95,7 @@ const SITE_CONFIG = {
       shortDesc: "Hassle-free new PAN card applications, updates, name/DOB corrections, and reprint requests with verified guidance.",
       detailedDesc: "Complete paperwork and online submission assistance for fresh NSDL/UTI PAN cards, address corrections, and minor-to-major conversions.",
       icon: "credit-card",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
       price: null
     },
     {
@@ -101,6 +105,7 @@ const SITE_CONFIG = {
       shortDesc: "Professional CV and resume creation tailored for freshers, experienced job seekers, and technical positions.",
       detailedDesc: "Clean, ATS-friendly modern resumes, biodata formats for marriages, and cover letters formatted to leave a great impression.",
       icon: "file-check",
+      image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600&q=80",
       price: null
     },
     {
@@ -110,6 +115,7 @@ const SITE_CONFIG = {
       shortDesc: "Convenient online booking assistance for train (IRCTC), bus, flight reservations, and status inquiries.",
       detailedDesc: "Instant online travel ticket booking, PNR status tracking, cancellation help, and printouts for hassle-free travel.",
       icon: "ticket",
+      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80",
       price: null
     },
     {
@@ -119,6 +125,7 @@ const SITE_CONFIG = {
       shortDesc: "Instant high-quality passport photographs with white or blue backgrounds strictly matching official specifications.",
       detailedDesc: "Standard passport photos for government forms, visas, ID cards, driving licenses, and school admissions printed instantly on premium photo paper.",
       icon: "camera",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
       price: null
     },
     {
@@ -128,6 +135,7 @@ const SITE_CONFIG = {
       shortDesc: "Digital utility bill payments, email assistance, document scanning & conversion, Aadhaar card services help, and more.",
       detailedDesc: "All-in-one digital support for everyday needs: electricity bills, internet registrations, file conversions (PDF to Word), and digital inquiries.",
       icon: "layers",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
       price: null
     }
   ],

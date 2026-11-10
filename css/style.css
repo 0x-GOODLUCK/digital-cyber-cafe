@@ -426,21 +426,90 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
-.hero-visual img {
+.hero-image-frame {
+  position: relative;
   width: 100%;
-  max-width: 500px;
-  height: auto;
-  filter: drop-shadow(0 20px 30px rgba(23, 43, 69, 0.08));
-  animation: subtleFloat 6s ease-in-out infinite;
+  max-width: 520px;
+  border-radius: var(--radius-xl);
+  overflow: visible;
 }
 
-@keyframes subtleFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+.hero-real-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 40px rgba(23, 43, 69, 0.16);
+  border: 4px solid #FFFFFF;
+}
+
+.hero-floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 25px rgba(23, 43, 69, 0.12);
+  z-index: 5;
+  animation: subtleFloat 5s ease-in-out infinite;
+}
+
+.hero-floating-card strong {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  display: block;
+}
+
+.hero-floating-card p {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.floating-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.top-right-card {
+  top: -15px;
+  right: -15px;
+}
+
+.bottom-left-card {
+  bottom: -20px;
+  left: -15px;
+  animation-delay: 2.5s;
+}
+
+.about-img-wrap {
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 200px;
+}
+
+.about-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.about-card:hover .about-real-img {
+  transform: scale(1.04);
 }
 
 /* ==========================================================================
@@ -456,53 +525,87 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 2rem 1.6rem;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-base);
   position: relative;
+  box-shadow: var(--shadow-sm);
 }
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(52, 120, 212, 0.35);
+  border-color: rgba(52, 120, 212, 0.4);
   box-shadow: var(--shadow-hover);
 }
 
-.service-icon-wrap {
-  width: 54px;
-  height: 54px;
+.service-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background-color: #E2E8F0;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-card-img {
+  transform: scale(1.05);
+}
+
+.service-icon-badge {
+  position: absolute;
+  bottom: -18px;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-md);
-  background-color: var(--color-primary-light);
+  background: #FFFFFF;
   color: var(--color-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.35rem;
+  box-shadow: 0 4px 12px rgba(23, 43, 69, 0.12);
+  border: 1px solid var(--color-border);
   transition: all var(--transition-base);
+  z-index: 2;
 }
 
-.service-card:hover .service-icon-wrap {
+.service-card:hover .service-icon-badge {
   background-color: var(--color-secondary);
   color: #FFFFFF;
+  transform: translateY(-2px);
 }
 
-.service-icon-wrap svg {
-  width: 26px;
-  height: 26px;
+.service-icon-badge svg {
+  width: 22px;
+  height: 22px;
+}
+
+.service-card-body {
+  padding: 1.5rem 1.4rem 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .service-title {
-  font-size: 1.2rem;
-  margin-bottom: 0.65rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
   color: var(--color-primary);
+  margin-top: 0.25rem;
 }
 
 .service-desc {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.75rem;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
   flex-grow: 1;
 }
 
