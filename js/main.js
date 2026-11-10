@@ -180,151 +180,53 @@ document.addEventListener('DOMContentLoaded', () => {
     modalServiceBadge.textContent = "Online Service Application";
     modalServiceTitle.textContent = service.title;
     const modalCard = modalBackdrop.querySelector('.modal-card');
-    if (modalCard) modalCard.classList.remove('modal-card-large');
+    if (modalCard) modalCard.classList.add('modal-card-large');
 
-    const formUrl = (config.googleFormUrls && service.formKey) 
+    const rawFormUrl = (config.googleFormUrls && service.formKey) 
       ? (config.googleFormUrls[service.formKey] || "").trim() 
-      : "";
-    const hasExternalGoogleForm = formUrl && /^https?:\/\//i.test(formUrl);
+      : "https://docs.google.com/forms/d/e/1FAIpQLSerOcirQHAROvJbv37-b1nwvrGn7Wic8CeAJWL8Hi21ftNfVg/viewform";
 
-    // Build service options for the select element
-    const serviceOptionsHtml = config.services.map(s => {
-      const isSelected = s.id === service.id ? 'selected' : '';
-      return `<option value="${s.title}" ${isSelected}>${s.title}</option>`;
-    }).join('');
-
-    modalBodyContent.innerHTML = `
-      ${hasExternalGoogleForm ? `
-        <div class="external-form-callout">
-          <p>An official Google Form is also linked for this service.</p>
-          <a href="${formUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="padding: 0.35rem 0.75rem; font-size: 0.78rem;">
-            <span>Open Google Form</span>
-            ${getIcon('external-link')}
-          </a>
-        </div>
-      ` : ''}
-
-      <form id="online-application-form" class="app-form">
-        <div class="form-group">
-          <label class="form-label" for="app-service">Selected Service <span class="required">*</span></label>
-          <select id="app-service" class="form-select" required>
-            ${serviceOptionsHtml}
-          </select>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="app-fullname">Full Name <span class="required">*</span></label>
-            <input type="text" id="app-fullname" class="form-input" placeholder="Your full name" required autocomplete="name">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="app-mobile">Mobile Number <span class="required">*</span></label>
-            <input type="tel" id="app-mobile" class="form-input" placeholder="10-digit mobile number" pattern="[0-9]{10}" required autocomplete="tel">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="app-email">Email Address <span style="font-weight: 400; color: #64748B;">(Optional)</span></label>
-          <input type="email" id="app-email" class="form-input" placeholder="name@example.com" autocomplete="email">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Attach Document / Photo <span style="font-weight: 400; color: #64748B;">(PDF, JPG, PNG)</span></label>
-          <div class="file-upload-zone" id="file-drop-zone">
-            <input type="file" id="app-file" accept=".pdf,.jpg,.jpeg,.png">
-            <div class="file-upload-icon">${getIcon('upload')}</div>
-            <div class="file-upload-text">Click to choose or drag document file here</div>
-            <div class="file-upload-subtext">Supports PDF, JPG, PNG up to 15MB</div>
-            <div class="file-selected-badge" id="file-badge">
-              <span id="file-name-text">No file selected</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="app-notes">Additional Details / Instructions <span style="font-weight: 400; color: #64748B;">(Optional)</span></label>
-          <textarea id="app-notes" class="form-textarea" placeholder="Provide any specific requirements, exam name, category, or urgent notes..."></textarea>
-        </div>
-
-        <div style="font-size: 0.8rem; color: #64748B; background: #F8FAFC; padding: 0.6rem 0.85rem; border-radius: 6px; border-left: 3px solid #3478D4;">
-          Your details are submitted directly to Digital Cyber Cafe (Managed by Rahul). Please bring original documents when visiting the shop in Aman Nagar.
-        </div>
-      </form>
-    `;
-
-    // File input event listener
-    const fileInput = document.getElementById('app-file');
-    const fileBadge = document.getElementById('file-badge');
-    const fileNameText = document.getElementById('file-name-text');
-    if (fileInput && fileBadge) {
-      fileInput.addEventListener('change', () => {
-        if (fileInput.files.length > 0) {
-          const file = fileInput.files[0];
-          fileNameText.textContent = `Attached: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
-          fileBadge.style.display = 'inline-flex';
-        } else {
-          fileBadge.style.display = 'none';
-        }
-      });
+    // Clean URL and append embedded=true
+    let embeddedUrl = rawFormUrl;
+    if (embeddedUrl.includes('?')) {
+      embeddedUrl = embeddedUrl.split('?')[0] + '?embedded=true';
+    } else {
+      embeddedUrl += '?embedded=true';
     }
 
-    // Modal buttons
+    modalBodyContent.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem; background: #F8FAFC; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #E2E8F0;">
+        <span style="font-size: 0.88rem; color: #173B67; font-weight: 600;">
+          Applying for: <strong style="color: #3478D4;">${service.title}</strong>
+        </span>
+        <a href="${rawFormUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+          <span>Open in New Tab</span>
+          ${getIcon('external-link')}
+        </a>
+      </div>
+
+      <div style="position: relative; width: 100%; height: 580px; border-radius: 8px; overflow: hidden; border: 1px solid #E2E8F0; background-color: #FFFFFF;">
+        <iframe 
+          src="${embeddedUrl}" 
+          width="100%" 
+          height="100%" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0"
+          style="border: none; display: block;"
+          title="Application Form for ${service.title}">
+          Loading application form…
+        </iframe>
+      </div>
+      
+      <div style="margin-top: 0.75rem; font-size: 0.8rem; color: #64748B; text-align: center;">
+        Your application is securely submitted to Digital Cyber Cafe (Managed by Rahul).
+      </div>
+    `;
+
     modalFooter.style.display = 'flex';
-    modalDismissBtn.textContent = "Cancel";
-    modalActionBtn.textContent = "Submit Application";
-    modalActionBtn.className = "btn btn-primary btn-sm";
-    modalActionBtn.style.display = "inline-flex";
-
-    // Handle Form Submit
-    modalActionBtn.onclick = () => {
-      const form = document.getElementById('online-application-form');
-      if (!form.reportValidity()) {
-        return;
-      }
-
-      const selectedService = document.getElementById('app-service').value;
-      const fullName = document.getElementById('app-fullname').value.trim();
-      const mobile = document.getElementById('app-mobile').value.trim();
-      const email = document.getElementById('app-email').value.trim();
-      const notes = document.getElementById('app-notes').value.trim();
-      const attachedFileName = fileInput.files.length > 0 ? fileInput.files[0].name : "None attached (in-person)";
-
-      // Generate a clean application tracking number
-      const trackingId = "DCC-" + new Date().getFullYear() + "-" + Math.floor(1000 + Math.random() * 9000);
-      const submissionDate = new Date().toLocaleString();
-
-      const newApp = {
-        trackingId,
-        date: submissionDate,
-        service: selectedService,
-        fullName,
-        mobile,
-        email: email || "N/A",
-        fileName: attachedFileName,
-        notes: notes || "No additional notes",
-        status: "Received"
-      };
-
-      // Save application locally
-      saveApplication(newApp);
-
-      // Send directly to Google Sheet in the background (Solution 2)
-      if (config.googleSheetWebhookUrl && /^https?:\/\//i.test(config.googleSheetWebhookUrl)) {
-        try {
-          fetch(config.googleSheetWebhookUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newApp)
-          });
-        } catch (err) {
-          console.warn('Google Sheet background sync notice:', err);
-        }
-      }
-
-      // Render Confirmation Receipt Slip
-      showApplicationReceipt(newApp);
-    };
+    modalDismissBtn.textContent = "Close";
+    modalActionBtn.style.display = "none";
 
     openModal();
   }
